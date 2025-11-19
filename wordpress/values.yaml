@@ -2,18 +2,21 @@
 ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
 ## Current available global Docker image parameters: imageRegistry and imagePullSecrets
 ##
-# global:
+global:
 #   imageRegistry: myRegistryName
 #   imagePullSecrets:
 #     - myRegistryKeySecretName
 #   storageClass: myStorageClass
+  security:
+    ## @param global.security.allowInsecureImages Allows skipping image verification
+    allowInsecureImages: true
 
 ## Bitnami WordPress image version
 ## ref: https://hub.docker.com/r/bitnami/wordpress/tags/
 ##
 image:
   registry: docker.io
-  repository: bitnami/wordpress
+  repository: bitnamilegacy/wordpress
   tag: 5.3.2-debian-10-r32
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -413,7 +416,7 @@ metrics:
   enabled: false
   image:
     registry: docker.io
-    repository: bitnami/apache-exporter
+    repository: bitnamilegacy/apache-exporter
     tag: 0.7.0-debian-10-r32
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
