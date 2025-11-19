@@ -2,11 +2,14 @@
 ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
 ## Current available global Docker image parameters: imageRegistry and imagePullSecrets
 ##
-# global:
+global:
 #   imageRegistry: myRegistryName
 #   imagePullSecrets:
 #     - myRegistryKeySecretName
 #   storageClass: myStorageClass
+  security:
+    ## @param global.security.allowInsecureImages Allows skipping image verification
+    allowInsecureImages: true
 
 ## Use an alternate scheduler, e.g. "stork".
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
@@ -18,7 +21,7 @@
 ##
 image:
   registry: docker.io
-  repository: bitnami/mariadb
+  repository: bitnamilegacy/mariadb
   tag: 10.3.22-debian-10-r27
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -52,7 +55,7 @@ volumePermissions:
   enabled: false
   image:
     registry: docker.io
-    repository: bitnami/minideb
+    repository: bitnamilegacy/minideb
     tag: buster
     pullPolicy: Always
     ## Optionally specify an array of imagePullSecrets.
@@ -460,7 +463,7 @@ metrics:
   enabled: false
   image:
     registry: docker.io
-    repository: bitnami/mysqld-exporter
+    repository: bitnamilegacy/mysqld-exporter
     tag: 0.12.1-debian-10-r27
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
